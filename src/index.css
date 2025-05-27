@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Palette: Pastel Green (approx. HSL 145, 63%, 90%) and its derivatives */
+    /* Darker shades for text and elements, lighter for backgrounds */
+
+    --background: 145 60% 97%; /* Very Light Pastel Green */
+    --foreground: 145 30% 20%; /* Dark Green-Gray for text */
+
+    --card: 145 50% 99%; /* Almost White with a hint of green */
+    --card-foreground: 145 30% 20%;
+
+    --popover: 145 50% 99%;
+    --popover-foreground: 145 30% 20%;
+
+    --primary: 140 55% 55%; /* Main Pastel Green - vibrant but soft */
+    --primary-foreground: 145 30% 15%; /* Dark Green for text on primary */
+
+    --secondary: 140 40% 75%; /* Lighter, muted Pastel Green */
+    --secondary-foreground: 145 30% 20%; 
+
+    --muted: 145 40% 92%; /* Very Light, almost gray Pastel Green */
+    --muted-foreground: 145 25% 45%; /* Medium Green-Gray */
+
+    --accent: 100 50% 60%; /* Complementary soft yellow-green or a brighter pastel green */
+    --accent-foreground: 145 30% 15%; 
+
+    --destructive: 0 60% 60%; /* Soft Red */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 145 30% 85%; /* Light Green-Gray Border */
+    --input: 145 40% 95%; /* Very Light Green Input BG */
+    --ring: 140 55% 65%; /* Slightly Lighter Main Pastel Green for focus */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Palette: Deep Greens and Grays */
+    --background: 145 30% 10%; /* Very Dark Green */
+    --foreground: 145 40% 90%; /* Light Green-Gray text */
+
+    --card: 145 30% 15%; /* Dark Green */
+    --card-foreground: 145 40% 90%;
+
+    --popover: 145 30% 15%;
+    --popover-foreground: 145 40% 90%;
+
+    --primary: 140 50% 45%; /* Deeper Main Pastel Green */
+    --primary-foreground: 145 40% 95%; /* Very Light Green for text on primary */
+
+    --secondary: 140 30% 30%; /* Dark Muted Green */
+    --secondary-foreground: 145 40% 85%; 
+
+    --muted: 145 30% 20%; /* Darker Green-Gray */
+    --muted-foreground: 145 30% 60%; 
+
+    --accent: 100 45% 50%; /* Deeper Complementary soft yellow-green */
+    --accent-foreground: 145 40% 95%;
+
+    --destructive: 0 50% 50%; /* Darker Soft Red */
+    --destructive-foreground: 145 40% 95%;
+
+    --border: 145 30% 25%; /* Dark Green-Gray Border */
+    --input: 145 30% 18%; /* Dark Green Input BG */
+    --ring: 140 50% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted) / 0.5);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.6);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+.glassmorphic {
+  background: hsl(var(--card) / 0.7); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border) / 0.3);
+  box-shadow: 0 8px 32px 0 hsla(var(--primary), 0.15);
+}
+
+.dark .glassmorphic {
+  background: hsl(var(--card) / 0.6);
+  border: 1px solid hsl(var(--border) / 0.2);
+}
